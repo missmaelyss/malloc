@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: marnaud <marvin@42.fr>                     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/07/11 17:58:28 by marnaud           #+#    #+#              #
+#    Updated: 2019/07/11 17:58:30 by marnaud          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 ifeq ($(HOSTTYPE),)
 	HOSTTYPE := $(shell uname -m)_$(shell uname -s)
 endif
@@ -6,11 +18,15 @@ NAME = libft_malloc_$(HOSTTYPE).so
 
 CC = gcc
 
-FLAGS = -g -Wall -Wextra
+FLAGS = -g -Wall -Wextra -Werror
 
 INC = -I include
 
-SRC_NAME = global.c malloc.c free.c realloc.c show_alloc_mem.c
+SRC_NAME = 	realloc.c malloc.c free.c \
+			global.c show_alloc_mem.c \
+			large.c small.c tiny.c \
+			print_address.c
+
 
 SRC_PATH = src/
 
